@@ -1,13 +1,13 @@
 {
-  "name": "litecore-node",
-  "description": "Full node with extended capabilities using Litecore and Litecoin Core",
+  "name": "tescore-node",
+  "description": "Full node with extended capabilities using Litecore and Teslacoin Core",
   "author": "BitPay <dev@bitpay.com>",
   "version": "3.1.11",
   "main": "./index.js",
-  "repository": "git://github.com/litecoin-project/litecore-node.git",
-  "homepage": "https://github.com/litecoin-project/litecore-node",
+  "repository": "git://github.com/teslacoin-project/tescore-node.git",
+  "homepage": "https://github.com/teslacoin-project/tescore-node",
   "bugs": {
-    "url": "https://github.com/litecoin-project/litecore-node/issues"
+    "url": "https://github.com/teslacoin-project/tescore-node/issues"
   },
   "contributors": [
     {
@@ -32,11 +32,15 @@
     {
       "name": "Loshan T",
       "email": "loshan1212@gmail.com"
+    },
+    {
+      "name": "Samad Sajanlal",
+      "email": "samad.sajanlal@gmail.com"
     }
   ],
   "bin": {
-    "litecore-node": "./bin/litecore-node",
-    "litecoind": "./bin/litecoind"
+    "tescore-node": "./bin/tescore-node",
+    "Teslacoind": "./bin/Teslacoind"
   },
   "scripts": {
     "preinstall": "./scripts/download",
@@ -48,8 +52,8 @@
     "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "tags": [
-    "litecoin",
-    "litecoind"
+    "teslacoin",
+    "Teslacoind"
   ],
   "dependencies": {
     "async": "^1.3.0",
@@ -59,8 +63,8 @@
     "errno": "^0.1.4",
     "express": "^4.13.3",
     "liftoff": "^2.2.0",
-    "litecoind-rpc": "^0.7.1",
-    "litecore-lib": "^0.13.22",
+    "Teslacoind-rpc": "^0.7.1",
+    "tescore-lib": "^0.13.22",
     "lru-cache": "^4.0.1",
     "mkdirp": "0.5.0",
     "path-is-absolute": "^1.0.0",
@@ -75,7 +79,7 @@
   },
   "devDependencies": {
     "benchmark": "1.0.0",
-    "litecore-p2p": "^1.1.2",
+    "tescore-p2p": "^1.1.2",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",

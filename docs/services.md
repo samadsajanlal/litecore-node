@@ -5,7 +5,7 @@ Bitcore Node has a service module system that can start up additional services t
 - HTTP routes
 - Event types to publish and subscribe
 
-The `litecore-node.json` file describes which services will load for a node:
+The `tescore-node.json` file describes which services will load for a node:
 
 ```json
 {
@@ -20,36 +20,36 @@ Services correspond with a Node.js module as described in 'package.json', for ex
 ```json
 {
   "dependencies": {
-    "litecore-lib": "^0.1.0",
-    "litecore-node": "^0.2.0",
+    "tescore-lib": "^0.1.0",
+    "tescore-node": "^0.2.0",
     "insight-api": "^3.0.0"
   }
 }
 ```
 
-_Note:_ If you already have a litecore-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your litecore-node database and resyncing.
+_Note:_ If you already have a tescore-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your tescore-node database and resyncing.
 
 ## Using Services Programmatically
 If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.
 
 ```js
-//Require litecore
-var litecore = require('litecore-node');
+//Require tescore
+var tescore = require('tescore-node');
 
 //Services
-var Bitcoin = litecore.services.Bitcoin;
-var Web = litecore.services.Web;
+var Bitcoin = tescore.services.Bitcoin;
+var Web = tescore.services.Web;
 
-var myNode = new litecore.Node({
+var myNode = new tescore.Node({
   network: 'regtest'
   services: [
     {
-      name: 'litecoind',
-      module: Litecoin,
+      name: 'Teslacoind',
+      module: Teslacoin,
       config: {
         spawn: {
-          datadir: '/home/<username>/.litecoin',
-          exec: '/home/<username>/litecore-node/bin/litecoind'
+          datadir: '/home/<username>/.Teslacoin',
+          exec: '/home/<username>/tescore-node/bin/Teslacoind'
         }
       }
     },
@@ -82,7 +82,7 @@ A new service can be created by inheriting from `Node.Service` and implementing 
 - `Service.prototype.getPublishEvents()` - Describes which events can be subscribed to for this service, useful to subscribe to events over the included web socket API.
 - `Service.prototype.setupRoutes()` - A service can extend HTTP routes on an express application by implementing this method.
 
-The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"litecoreNode": "lib/litecore-node.js"`.
+The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"tescoreNode": "lib/tescore-node.js"`.
 
 Please take a look at some of the existing services for implementation specifics.
 

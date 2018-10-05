@@ -6,7 +6,7 @@ var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 var should = require('chai').should();
 var crypto = require('crypto');
-var bitcore = require('litecore-lib');
+var bitcore = require('tescore-lib');
 var _ = bitcore.deps._;
 var sinon = require('sinon');
 var proxyquire = require('proxyquire');
@@ -389,8 +389,8 @@ describe('Bitcoin Service', function() {
         txindex: 1,
         upnp: 0,
         whitelist: '127.0.0.1',
-        zmqpubhashblock: 'tcp://127.0.0.1:29332',
-        zmqpubrawtx: 'tcp://127.0.0.1:29332'
+        zmqpubhashblock: 'tcp://127.0.0.1:21857',
+        zmqpubrawtx: 'tcp://127.0.0.1:21857'
       });
     });
     it('will expand relative datadir to absolute path', function() {
@@ -407,7 +407,7 @@ describe('Bitcoin Service', function() {
       var config = {
         node: {
           network: bitcore.Networks.testnet,
-          configPath: '/tmp/.bitcore/litecore-node.json'
+          configPath: '/tmp/.bitcore/tescore-node.json'
         },
         spawn: {
           datadir: './data',
@@ -503,8 +503,8 @@ describe('Bitcoin Service', function() {
         addressindex: 1,
         spentindex: 1,
         server: 1,
-        zmqpubrawtx: 'tcp://127.0.0.1:29332',
-        zmqpubhashblock: 'tcp://127.0.0.1:29331',
+        zmqpubrawtx: 'tcp://127.0.0.1:21857',
+        zmqpubhashblock: 'tcp://127.0.0.1:21856',
         reindex: 1
       };
       var node = {};
@@ -769,7 +769,7 @@ describe('Bitcoin Service', function() {
         }
       };
       var bitcoind = new BitcoinService(config);
-      bitcoind._getDefaultConf().rpcport.should.equal(9332);
+      bitcoind._getDefaultConf().rpcport.should.equal(1857);
     });
     it('will get default rpc port for testnet', function() {
       var config = {
@@ -782,7 +782,7 @@ describe('Bitcoin Service', function() {
         }
       };
       var bitcoind = new BitcoinService(config);
-      bitcoind._getDefaultConf().rpcport.should.equal(19332);
+      bitcoind._getDefaultConf().rpcport.should.equal(11857);
     });
     it('will get default rpc port for regtest', function() {
       bitcore.Networks.enableRegtest();
@@ -796,7 +796,7 @@ describe('Bitcoin Service', function() {
         }
       };
       var bitcoind = new BitcoinService(config);
-      bitcoind._getDefaultConf().rpcport.should.equal(19332);
+      bitcoind._getDefaultConf().rpcport.should.equal(11857);
     });
   });
 

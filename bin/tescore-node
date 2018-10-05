@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var tescore = require('../lib/cli/bitcore');
+tescore();
